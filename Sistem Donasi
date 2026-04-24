@@ -1,0 +1,32 @@
+class SistemDonasi {
+
+    fun prosesDonasi(
+        donatur: Donatur,
+        campaign: CampaignDonasi,
+        jumlah: Double
+    ) {
+
+        println("Memproses donasi...")
+
+        if (jumlah <= 0) {
+            println("ERROR: Nominal tidak valid")
+            return
+        }
+
+        // VALIDASI DULU SEMUA (PENTING)
+        if (jumlah > campaign.sisaTarget()) {
+            println("ERROR: Melebihi target campaign")
+            return
+        }
+
+        if (!donatur.kurangiSaldo(jumlah)) {
+            println("ERROR: Saldo tidak cukup")
+            return
+        }
+
+        // EKSEKUSI
+        campaign.tambahDonasi(jumlah)
+
+        println("Donasi berhasil Rp$jumlah")
+    }
+}
