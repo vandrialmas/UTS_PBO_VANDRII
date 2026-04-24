@@ -26,7 +26,7 @@ class Donatur(private val nama: String, saldoAwal: Double) {
         }
     }
 
-    fun lihatStatus() {
+    fun lihatStatus(campaign: CampaignDonasi) {
         println("Melihat status hasil donasi...")
     }
 }

@@ -9,17 +9,24 @@ fun main() {
     donatur.login()
     pengelola.login()
 
-    println("\n=== CEK SALDO ===")
+    println("\n=== CEK SALDO AWAL ===")
     donatur.cekSaldo()
 
-    println("\n=== GAGAL ===")
-    val j1 = donatur.isiFormDonasi(200000.0)
-    sistem.prosesDonasi(donatur, campaign, j1)
+    println("\n=== SIMULASI GAGAL (SALDO KURANG) ===")
+    val jumlah1 = donatur.isiFormDonasi(200000.0)
+    sistem.prosesDonasi(donatur, campaign, jumlah1)
 
-    println("\n=== SUKSES ===")
-    val j2 = donatur.isiFormDonasi(50000.0)
-    sistem.prosesDonasi(donatur, campaign, j2)
+    println("\n=== SIMULASI SUKSES ===")
+    val jumlah2 = donatur.isiFormDonasi(50000.0)
+    sistem.prosesDonasi(donatur, campaign, jumlah2)
 
-    println("\n=== HASIL ===")
+    println("\n=== STATUS DONASI ===")
+    donatur.lihatStatus(campaign)
+
+    println("\n=== FITUR PENGELOLA ===")
+    pengelola.buatBerita()           // 🔥 biar tidak abu-abu
     pengelola.lihatProgress(campaign)
+
+    println("\n=== SALDO AKHIR ===")
+    donatur.cekSaldo()
 }
