@@ -1,0 +1,21 @@
+class CampaignDonasi(
+    private val namaCampaign: String,
+    private val target: Double
+) {
+
+    private var saldoTerkumpul: Double = 0.0
+        private set
+
+    fun tambahDonasi(jumlah: Double) {
+        saldoTerkumpul += jumlah
+    }
+
+    fun sisaTarget(): Double {
+        return target - saldoTerkumpul
+    }
+
+    fun cekProgress() {
+        println("Campaign: $namaCampaign")
+        println("Progress: Rp$saldoTerkumpul / Rp$target")
+    }
+}
