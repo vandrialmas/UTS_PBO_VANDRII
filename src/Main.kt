@@ -1,3 +1,4 @@
+// Project UTS PBO 2026
 fun main() {
 
     val donatur = Donatur("Vandri", 100000.0)
